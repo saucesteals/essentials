@@ -1,0 +1,21 @@
+{
+  "name": "essentials",
+  "version": "1.0.0",
+  "description": "Essentials bot for Discord",
+  "main": "src/index.js",
+  "repository": "https://github.com/saucesteals/essentials",
+  "author": "sauce <saucesteals@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^14.14.20",
+    "discord.js": "^12.5.1",
+    "discord.js-commando": "https://github.com/discordjs/Commando",
+    "dotenv": "^8.2.0",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "watch": "ts-node-dev src/index.ts"
+  }
+}
