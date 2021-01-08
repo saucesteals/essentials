@@ -1,10 +1,9 @@
-import { time } from "console";
 import { MessageEmbed } from "discord.js";
 import Essentials from "../structures/EssentialsClient";
 import { errorColor, successColor } from "./colors";
 
 export default class Helper {
-    private client: Essentials;
+    readonly client!: Essentials;
     constructor(client:Essentials) {
         this.client = client;
     } 

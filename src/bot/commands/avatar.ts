@@ -1,7 +1,7 @@
 import { CommandoMessage } from "discord.js-commando";
 import Essentials from "../structures/EssentialsClient";
 import EssentialsCommand from "../structures/EssentialsCommand";
-import { GuildMember, User, Message } from 'discord.js'
+import { GuildMember, Message } from 'discord.js'
 
 export default class Avatar extends EssentialsCommand {
   constructor(client: Essentials) {

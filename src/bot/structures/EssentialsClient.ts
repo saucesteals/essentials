@@ -1,12 +1,10 @@
-import Commando, { CommandoClientOptions } from "discord.js-commando";
-import path from "path";
-import Helper from '../utils/helper'
+import { CommandoClient, CommandoClientOptions } from "discord.js-commando";
+import Helper from "../utils/helper";
 
-export default class Essentials extends Commando.CommandoClient {
-    public helper: Helper;
+export default class Essentials extends CommandoClient {
+  public helper: Helper;
 
-    
-  constructor(config:CommandoClientOptions, commandDir:string) {
+  constructor(config: CommandoClientOptions, commandDir: string) {
     super(config);
 
     this.registry
@@ -18,10 +16,10 @@ export default class Essentials extends Commando.CommandoClient {
         dirname: commandDir,
       });
 
-    this.on('ready', () => {console.log(`Ready as ${this.user?.username}`)})
+    this.on("ready", () => {
+      console.log(`Ready as ${this.user?.username}`);
+    });
 
-    this.helper = new Helper(this)
+    this.helper = new Helper(this);
   }
-  
 }
-
