@@ -1,8 +1,10 @@
-import { MessageEmbed } from "discord.js";
+import { GuildMember, MessageEmbed, User } from "discord.js";
+import { Command } from "discord.js-commando";
+import { type } from "os";
 import Essentials from "../structures/EssentialsClient";
 import { errorColor, successColor } from "./colors";
 
-export default class Helper {
+export default class EmbedHelper {
     readonly client!: Essentials;
     constructor(client:Essentials) {
         this.client = client;
@@ -26,6 +28,12 @@ export default class Helper {
         .setColor(errorColor);
 
         return embed
+    }
+
+    public setAuthor(embed:MessageEmbed=new MessageEmbed(), user:User, client:Essentials=this.client):MessageEmbed {
+
+        return embed.setAuthor(user.username + "#" + user.discriminator, user.avatarURL({format:"png"}) || undefined)
+         
     }
      
 }

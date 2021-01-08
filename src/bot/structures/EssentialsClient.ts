@@ -1,8 +1,8 @@
 import { CommandoClient, CommandoClientOptions } from "discord.js-commando";
-import Helper from "../utils/helper";
+import EmbedHelper from "../utils/EmbedHelper";
 
 export default class Essentials extends CommandoClient {
-  public helper: Helper;
+  public embedHelper: EmbedHelper;
 
   constructor(config: CommandoClientOptions, commandDir: string) {
     super(config);
@@ -20,6 +20,6 @@ export default class Essentials extends CommandoClient {
       console.log(`Ready as ${this.user?.username}`);
     });
 
-    this.helper = new Helper(this);
+    this.embedHelper = new EmbedHelper(this);
   }
 }

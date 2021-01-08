@@ -23,7 +23,7 @@ export default class Avatar extends EssentialsCommand {
   }
 
   public async run(message: CommandoMessage, { member }: {member:GuildMember | string}): Promise<Message | Message[]> {
-    const embed = this.client.helper.successEmbed();
+    const embed = this.client.embedHelper.successEmbed();
     const user = typeof member != "string" ? member.user : message.author;
 
 

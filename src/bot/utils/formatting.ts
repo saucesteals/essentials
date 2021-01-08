@@ -1,0 +1,1 @@
+export const bolden = (text:string) => {return '**' + text + '**'}
