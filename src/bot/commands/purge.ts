@@ -10,7 +10,7 @@ export default class Purge extends EssentialsCommand {
     super(client, {
       name: "purge",
       memberName: "purge",
-      group: "util",
+      group: "mod",
       guildOnly: true,
       description: "Purge messages from the channel",
       clientPermissions: ['MANAGE_MESSAGES'],

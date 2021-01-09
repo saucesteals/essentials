@@ -8,6 +8,9 @@ export default class Essentials extends CommandoClient {
     this.registry
       .registerDefaultTypes()
       .registerDefaultGroups()
+      .registerGroups([
+        ["mod", "Moderation"]
+      ])
       .registerDefaultCommands({ unknownCommand: false })
       .registerCommandsIn({
         filter: /^([^.].*)\.(js|ts)$/,
