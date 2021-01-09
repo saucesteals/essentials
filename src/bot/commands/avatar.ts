@@ -2,6 +2,7 @@ import { CommandoMessage } from "discord.js-commando";
 import Essentials from "../structures/EssentialsClient";
 import EssentialsCommand from "../structures/EssentialsCommand";
 import { GuildMember, Message } from 'discord.js'
+import EssentialsEmbed from "../structures/EssentialsEmbed";
 
 export default class Avatar extends EssentialsCommand {
   constructor(client: Essentials) {
@@ -23,11 +24,12 @@ export default class Avatar extends EssentialsCommand {
   }
 
   public async run(message: CommandoMessage, { member }: {member:GuildMember | string}): Promise<Message | Message[]> {
-    const embed = this.client.embedHelper.successEmbed();
     const user = typeof member != "string" ? member.user : message.author;
 
-
-    embed.setTitle(user.username + "#" + user.discriminator)
+    const embed = new EssentialsEmbed() 
+    .setTimestamp()
+    .isSuccess()
+    .setUserAsAuthor(user)
     .setImage(user.avatarURL({size:4096}) || user.defaultAvatarURL);
 
     return message.say({content:message.author.toString(), embed:embed})

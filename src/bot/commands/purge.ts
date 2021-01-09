@@ -3,6 +3,7 @@ import Essentials from "../structures/EssentialsClient";
 import EssentialsCommand from "../structures/EssentialsCommand";
 import { Message, TextChannel } from 'discord.js'
 import { bolden } from '../utils/formatting'
+import EssentialsEmbed from "../structures/EssentialsEmbed";
 
 export default class Purge extends EssentialsCommand {
   constructor(client: Essentials) {
@@ -25,12 +26,14 @@ export default class Purge extends EssentialsCommand {
   }
 
   public async run(message: CommandoMessage, { amount }: {amount:number}): Promise<Message | Message[]> {
-    const embed = this.client.embedHelper.successEmbed();
 
     (<TextChannel>message.channel).bulkDelete(amount+1)
 
-    embed.setDescription(`Purged ${bolden(amount.toString())} messages!`)
-    this.client.embedHelper.setAuthor(embed, message.author)
+    const embed = new EssentialsEmbed()
+    .isSuccess()
+    .setClientAsFooter(this.client)
+    .setUserAsAuthor(message.author)
+    .setDescription(`Purged ${bolden(amount.toString())} messages!`)
 
     const reply = <Message> await message.say({content:message.author.toString(), embed:embed})
 
