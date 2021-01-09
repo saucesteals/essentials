@@ -24,7 +24,7 @@ export default class Essentials extends CommandoClient {
     });
     
     this.http = axios.create({
-      validateStatus: () => false,
+      validateStatus: null,
       headers: {
         'user-agent':'EssentialsBot/1.0; +https://github.com/saucesteals/essentials/)'
       }
