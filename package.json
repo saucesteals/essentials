@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/node": "^14.14.20",
+    "axios": "^0.21.1",
     "discord.js": "^12.5.1",
     "discord.js-commando": "https://github.com/discordjs/Commando",
     "dotenv": "^8.2.0",
